@@ -1,8 +1,8 @@
 import { Feed } from 'feed'
-import { getAllPosts } from '@/lib/posts'
+import { getAllPosts, type Post } from '@/lib/posts'
 
 export async function GET() {
-  const posts = getAllPosts()
+  const posts: Post[] = getAllPosts()
   const siteUrl = 'https://ultimeledorinte.com'
 
   const feed = new Feed({
@@ -16,7 +16,7 @@ export async function GET() {
     generator: 'Next.js + Feed',
   })
 
-  posts.forEach((post) => {
+  posts.forEach((post: Post) => {
     feed.addItem({
       title: post.frontmatter.title,
       id: `${siteUrl}/blog/${post.frontmatter.slug}`,

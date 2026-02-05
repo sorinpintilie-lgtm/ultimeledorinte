@@ -25,6 +25,9 @@ export interface Post {
   content: string
 }
 
+export type Category = { name: string; slug: string; count: number }
+export type Tag = { name: string; count: number }
+
 export function getAllPosts(): Post[] {
   if (!fs.existsSync(postsDirectory)) {
     return []
