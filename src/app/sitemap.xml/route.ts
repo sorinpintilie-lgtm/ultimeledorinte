@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts, getAllCategories, getAllTags, type Post, type Category, type Tag } from '@/lib/posts'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export async function GET() {
   const siteUrl = 'https://ultimeledorinte.com'
   const posts: Post[] = getAllPosts()
   const categories: Category[] = getAllCategories()
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }))
 
-  return [
+  const sitemap: MetadataRoute.Sitemap = [
     {
       url: siteUrl,
       lastModified,
@@ -52,4 +52,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryEntries,
     ...tagEntries,
   ]
+
+  return new Response(
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemap.map((entry) => `
+  <url>
+    <loc>${entry.url}</loc>
+    <lastmod>${(typeof entry.lastModified === 'string' ? new Date(entry.lastModified) : entry.lastModified || new Date()).toISOString()}</lastmod>
+    <changefreq>${entry.changeFrequency}</changefreq>
+    <priority>${entry.priority}</priority>
+  </url>
+`).join('')}
+</urlset>`,
+    {
+      headers: {
+        'Content-Type': 'application/xml',
+      },
+    }
+  )
 }

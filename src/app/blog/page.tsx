@@ -1,5 +1,5 @@
 import { getAllPosts, getAllCategories, getAllTags } from '@/lib/posts'
-import { BlogClient } from '@/components/blogclient'
+import { BlogClient } from '@/components/BlogClient'
 
 export const metadata = {
   title: 'Blog | Ultimele dorințe ale unui văduv tânăr',
