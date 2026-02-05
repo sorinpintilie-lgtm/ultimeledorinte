@@ -50,7 +50,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans antialiased" style={{ paddingTop: 'calc(var(--promo-bar-height) + env(safe-area-inset-top, 0px))' }}>
+      <body className="min-h-screen flex flex-col font-sans antialiased body-with-promo">
         <a href="#main-content" className="skip-link">
           Sari la conținutul principal
         </a>
