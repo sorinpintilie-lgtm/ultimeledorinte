@@ -94,7 +94,7 @@ export async function Footer() {
               </li>
               <li>
                 <Link
-                  href="/rss.xml"
+                  href="/rss"
                   className="text-foreground-muted hover:text-foreground transition-all duration-200 group"
                 >
                   <span className="group-hover:text-accent transition-colors">RSS</span>
