@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { PromoBar } from '@/components/PromoBar'
 
 export const viewport: Viewport = {
   themeColor: '#F5F0E8',
@@ -49,13 +50,15 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans antialiased">
+      <body className="min-h-screen flex flex-col font-sans antialiased" style={{ paddingTop: 'calc(var(--promo-bar-height) + env(safe-area-inset-top, 0px))' }}>
         <a href="#main-content" className="skip-link">
           Sari la conținutul principal
         </a>
         
+        <PromoBar />
+        
         {/* Decorative top border */}
-        <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent/40 to-transparent z-[10000]" />
+        <div className="fixed top-[calc(var(--promo-bar-height)+env(safe-area-inset-top,0px))] left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent/40 to-transparent z-[9999]" />
         
         <Header />
         <main id="main-content" className="flex-1">

@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 :root {
+  /* Promo bar */
+  --promo-bar-height: 40px;
+  
   /* Main colors */
   --background: #F3E8DF;
   --background-secondary: #E8D1C5;

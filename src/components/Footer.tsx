@@ -131,11 +131,21 @@ export async function Footer() {
               Toate drepturile rezervate.
             </p>
             
-            {/* Decorative element */}
+            {/* Decorative element with logo */}
             <div className="flex items-center gap-4">
-              <span className="text-stone text-xs tracking-widest uppercase">Scris cu</span>
-              <span className="text-accent animate-pulse">❤</span>
-              <span className="text-stone text-xs tracking-widest uppercase">în Romania</span>
+              <span className="text-stone text-xs tracking-widest uppercase">Crafted in the clouds by</span>
+              <a 
+                href="https://sky.ro" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <img 
+                  src="/skyro-logo.png" 
+                  alt="sky.ro" 
+                  className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </a>
             </div>
 
             {/* Tag links */}
